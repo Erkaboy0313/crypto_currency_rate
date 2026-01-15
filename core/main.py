@@ -15,7 +15,9 @@ register_tortoise(
 )
 
 
-@app.get('/')
-async def home():
-    return {"detail":"This is Regional Taxi Project in FastAPI"}
-
+@app.get("/health", tags=["Health"])
+async def health_check():
+    """
+    Health check endpoint to confirm that the API is running.
+    """
+    return {"status": "ok", "detail": "API is running"}
